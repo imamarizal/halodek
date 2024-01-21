@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin'])) {
 <html>
 
 <head>
-	<title>ADMIN AL-BAROKAH</title>
+	<title>ADMIN HANDCRAFT</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css">
