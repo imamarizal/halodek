@@ -50,7 +50,6 @@ if(isset($_POST['submit1'])){
 							<th scope="col">Nama</th>
 							<th scope="col">Harga</th>
 							<th scope="col">Qty</th>
-							<th scope="col">Ukuran</th>
 							<th scope="col">SubTotal</th>
 							<th scope="col">Action</th>
 						</tr>
@@ -60,7 +59,7 @@ if(isset($_POST['submit1'])){
 						$kode_cs = $_SESSION['kd_cs'];
 
 
-						$result = mysqli_query($conn, "SELECT k.id_keranjang as keranjang, k.kode_produk as kd, k.nama_produk as nama, k.qty as jml, p.image as gambar, k.harga as hrg, k.ukuran as ukuran FROM keranjang k join produk p on k.kode_produk=p.kode_produk WHERE kode_customer = '$kode_cs'");
+						$result = mysqli_query($conn, "SELECT k.id_keranjang as keranjang, k.kode_produk as kd, k.nama_produk as nama, k.qty as jml, p.image as gambar, k.harga as hrg FROM keranjang k join produk p on k.kode_produk=p.kode_produk WHERE kode_customer = '$kode_cs'");
 						$no = 1;
 						$hasil = 0;
 						while($row = mysqli_fetch_assoc($result)){
@@ -75,7 +74,6 @@ if(isset($_POST['submit1'])){
 							<td><?= $row['nama']; ?></td>
 							<td>Rp.<?= number_format($row['hrg']);  ?></td>
 							<td><input type="number" name="qty" class="form-control" style="text-align: center;" value="<?= $row['jml']; ?>"></td>
-							<td><?= strtoupper($row['ukuran']);  ?></td>
 							<td>Rp.<?= number_format($row['hrg'] * $row['jml']);  ?></td>
 							<td><button type="submit" name="submit1" class="btn btn-warning">Update</button> | <a href="keranjang.php?del=1&id=<?= $row['keranjang']; ?>" class="btn btn-danger" onclick="return confirm('Yakin ingin dihapus ?')">Delete</a></td>
 						</tr>
