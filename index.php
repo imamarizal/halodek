@@ -24,7 +24,7 @@ include 'header.php';
 
 	<div class="row">
 	<?php
-	$result = mysqli_query($conn, "SELECT * FROM produk GROUP BY kode_produk");
+	$result = mysqli_query($conn, "SELECT image,harga,kode_produk,nama FROM produk GROUP BY kode_produk");
 
 	if ($result) { // Periksa apakah query berhasil dijalankan
 		while ($row = mysqli_fetch_assoc($result)) {
