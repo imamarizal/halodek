@@ -24,7 +24,7 @@ include 'header.php';
 
 	<div class="row">
 		<?php
-		$result = mysqli_query($conn, "SELECT * FROM produk GROUP BY kode_produk");
+		$result = mysqli_query($conn, "SELECT * FROM produk");
 		while ($row = mysqli_fetch_assoc($result)) {
 		?>
 			<div class="col-sm-6 col-md-4">
