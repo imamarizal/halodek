@@ -14,7 +14,6 @@ $rows = mysqli_fetch_assoc($cs);
 				<tr>
 					<th>No</th>
 					<th>Nama</th>
-					<th>Ukuran</th>
 					<th>Harga</th>
 					<th>Qty</th>
 					<th>Sub Total</th>
@@ -33,7 +32,6 @@ $rows = mysqli_fetch_assoc($cs);
 					<tr>
 						<td><?= $no; ?></td>
 						<td><?= $row['nama_produk']; ?></td>
-						<td><?= strtoupper($row['ukuran']); ?></td>
 						<td>Rp.<?= number_format($row['harga']); ?></td>
 						<td><?= $row['qty']; ?></td>
 						<td>Rp.<?= number_format($row['harga'] * $row['qty']);  ?></td>
@@ -92,7 +90,7 @@ $rows = mysqli_fetch_assoc($cs);
 				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 				CURLOPT_CUSTOMREQUEST => "GET",
 				CURLOPT_HTTPHEADER => array(
-					"key: 8883c249d80d8bccfb0f18077e1ff594"
+					"key: f7cad22c239906850dd3502162413848"
 				),
 			));
 
@@ -161,11 +159,11 @@ $rows = mysqli_fetch_assoc($cs);
 			</div>
 
 			<div class="col-md-6">
-				<div class="form-group">	
-					<label>Paket</label>
-					<select id="paket" name="paket" class="form-control">
+				<!-- <div class="form-group">	 -->
+					<!-- <label>Paket</label> -->
+					<input type="hidden" id="paket" name="paket">
 
-					</select>
+					<!-- </input> -->
 				</div>
 			</div>
 		</div>
@@ -201,7 +199,7 @@ $rows = mysqli_fetch_assoc($cs);
 
 			$.ajax({
 				type : 'GET',
-				url : 'http://localhost/inovasi/cek_kabupaten.php',
+				url : 'http://localhost/halodek/cek_kabupaten.php',
 				data :  'prov_id=' + prov,
 				success: function (data) {
 

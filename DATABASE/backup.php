@@ -3,7 +3,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database_name = "dbpw192_18410100054";
+$database_name = "handcraft_2";
 
 // Connect ke database
 $conn = mysqli_connect($host, $username, $password, $database_name);

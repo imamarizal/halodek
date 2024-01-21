@@ -1,23 +1,25 @@
-<?php 
+<?php
 session_start();
 include '../koneksi/koneksi.php';
-if(!isset($_SESSION['admin'])){
+if (!isset($_SESSION['admin'])) {
 	header('location:index.php');
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>ADMIN AL-BAROKAH</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css">
-	<script  src="../js/jquery.js"></script>
-	<script  src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 
 
 </head>
+
 <body>
 
 	<nav class="navbar navbar-default" style="padding: 5px;">
@@ -48,17 +50,17 @@ if(!isset($_SESSION['admin'])){
 						<ul class="dropdown-menu">
 							<li><a href="produksi.php">Pesanan</a></li>
 							<!-- <li><a href="inventory.php">Inventory</a></li> -->
-							
+
 						</ul>
 					</li>
 
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-stats"></i> Laporan <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-						<!-- 	<li><a href="laporan_penjualan.php">Laporan Penjualan</a></li>
+							<!-- 	<li><a href="laporan_penjualan.php">Laporan Penjualan</a></li>
 							<li><a href="laporan_profit.php">Laporan Profit</a></li> -->
 							<li><a href="laporan_omset.php">Laporan Penjualan</a></li>
-<!-- 							<li><a href="laporan_pembatalan.php">Laporan Pembatalan	</a></li>
+							<!-- 							<li><a href="laporan_pembatalan.php">Laporan Pembatalan	</a></li>
 							<li><a href="laporan_inventory.php">Laporan Inventory</a></li> -->
 							<!-- <li><a href="laporan_produksi.php">Laporan Produksi</a></li> -->
 						</ul>
@@ -73,6 +75,7 @@ if(!isset($_SESSION['admin'])){
 						<ul class="dropdown-menu">
 							<li><a href="../DATABASE/backup.php">Backup Database</a></li>
 							<li><a href="../DATABASE/retrieve.php">Retrieve Database</a></li>
+							<li><a href="./edit_posts.php">Edit Posts</a></li>
 						</ul>
 					</li>
 
@@ -88,6 +91,3 @@ if(!isset($_SESSION['admin'])){
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-
-
-
