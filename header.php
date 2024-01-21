@@ -9,7 +9,7 @@ if(isset($_SESSION['kd_cs'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Batik Al Barokah</title>
+	<title>Meisya Handcraft</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
@@ -32,7 +32,7 @@ if(isset($_SESSION['kd_cs'])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="color: #fff;"><b>Batik Al Barokah</b></a>
+				<a class="navbar-brand" href="#" style="color: #fff;"><b>Meisya Handcraft</b></a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
