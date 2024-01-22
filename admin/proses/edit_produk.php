@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../koneksi/koneksi.php';
 
 $kode = $_POST['kode'];
@@ -11,30 +11,18 @@ $tmp_file = $_FILES['files']['tmp_name'];
 $eror = $_FILES['files']['error'];
 $type = $_FILES['files']['type'];
 $harga  = $_POST['harga'];
-$ukuran = $_POST['ukuran'];
 $berat = $_POST['berat'];
 
 
 
 
-if($eror === 4){
-
-	$array = array_filter($harga);
-	$uk = "";
-	$hrg = "";
-	foreach ($array as $key => $value) {
-		$hrg.=$value.",";
-	}
-		foreach ($ukuran as $key => $v) {
-			$uk.=$v.",";
-		}
-	$huk = rtrim($uk,",");
-	$hhrg = rtrim($hrg,",");
+if ($eror === 4) {
 
 
-	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', deskripsi = '$desk', harga = '$hhrg', ukuran = '$huk', berat = '$berat' where kode_produk = '$kode'");
 
-	if($result){
+	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', deskripsi = '$desk', harga = '$harga', berat = '$berat' where kode_produk = '$kode'");
+
+	if ($result) {
 		echo "
 		<script>
 		alert('PRODUK BERHASIL DIEDIT');
@@ -43,26 +31,25 @@ if($eror === 4){
 		";
 	}
 	die;
-
 }
 
 
 
-$ekstensiGambar = array('jpg','jpeg','png');
+$ekstensiGambar = array('jpg', 'jpeg', 'png');
 $ekstensiGambarValid = explode(".", $nama_gambar);
 $ekstensiGambarValid = strtolower(end($ekstensiGambarValid));
 
-if(!in_array($ekstensiGambarValid, $ekstensiGambar)){
+if (!in_array($ekstensiGambarValid, $ekstensiGambar)) {
 	echo "
 	<script>
 	alert('EKSTENSI GAMBAR HARUS JPG, JPEG, PNG');
-	window.location = '../edit_produk.php?kode=".$kode."';
+	window.location = '../edit_produk.php?kode=" . $kode . "';
 	</script>
 	";
 	die;
 }
 
-if($size_gambar > 1000000){
+if ($size_gambar > 1000000) {
 	echo "
 	<script>
 	alert('UKURAN GAMBAR TERLALU BESAR');
@@ -73,34 +60,22 @@ if($size_gambar > 1000000){
 }
 
 $namaGambarBaru = uniqid();
-$namaGambarBaru.=".";
-$namaGambarBaru.=$ekstensiGambarValid;
+$namaGambarBaru .= ".";
+$namaGambarBaru .= $ekstensiGambarValid;
 
 $gambar = mysqli_query($conn, "SELECT image from produk where kode_produk = '$kode'");
 $tgambar = mysqli_fetch_assoc($gambar);
-if (file_exists("../../image/produk/".$tgambar['image'])) {
-	unlink("../../image/produk/".$tgambar['image']);
-	move_uploaded_file($tmp_file, "../../image/produk/".$namaGambarBaru);
-
-	$array = array_filter($harga);
-	$uk = "";
-	$hrg = "";
-	foreach ($array as $key => $value) {
-		$hrg.=$value.",";
-	}
-		foreach ($ukuran as $key => $v) {
-			$uk.=$v.",";
-		}
-	$huk = rtrim($uk,",");
-	$hhrg = rtrim($hrg,",");
+if (file_exists("../../image/produk/" . $tgambar['image'])) {
+	unlink("../../image/produk/" . $tgambar['image']);
+	move_uploaded_file($tmp_file, "../../image/produk/" . $namaGambarBaru);
 
 
-	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', image = '$namaGambarBaru', deskripsi = '$desk', harga = '$hhrg', ukuran = '$huk', berat = '$berat' where kode_produk = '$kode'");
+	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', image = '$namaGambarBaru', deskripsi = '$desk', harga = '$harga', berat = '$berat' where kode_produk = '$kode'");
 
 
 
 
-	if($result){
+	if ($result) {
 		echo "
 		<script>
 		alert('PRODUK BERHASIL DIEDIT');
@@ -108,28 +83,14 @@ if (file_exists("../../image/produk/".$tgambar['image'])) {
 		</script>
 		";
 	}
+} else {
+
+	move_uploaded_file($tmp_file, "../../image/produk/" . $namaGambarBaru);
 
 
-}else{
+	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', image = '$namaGambarBaru', deskripsi = '$desk', harga = '$harga', berat = '$berat' where kode_produk = '$kode'");
 
-move_uploaded_file($tmp_file, "../../image/produk/".$namaGambarBaru);
-
-		$array = array_filter($harga);
-	$uk = "";
-	$hrg = "";
-	foreach ($array as $key => $value) {
-		$hrg.=$value.",";
-	}
-		foreach ($ukuran as $key => $v) {
-			$uk.=$v.",";
-		}
-	$huk = rtrim($uk,",");
-	$hhrg = rtrim($hrg,",");
-
-
-	$result = mysqli_query($conn, "UPDATE produk SET nama = '$nm_produk', image = '$namaGambarBaru', deskripsi = '$desk', harga = '$hhrg', ukuran = '$huk', berat = '$berat' where kode_produk = '$kode'");
-
-	if($result){
+	if ($result) {
 		echo "
 		<script>
 		alert('PRODUK BERHASIL DIEDIT');
@@ -138,8 +99,3 @@ move_uploaded_file($tmp_file, "../../image/produk/".$namaGambarBaru);
 		";
 	}
 }
-
-
-
-
-?>

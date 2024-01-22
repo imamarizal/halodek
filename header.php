@@ -21,25 +21,6 @@ if(isset($_SESSION['kd_cs'])){
 
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row top">
-			<center>
-				<div class="col-md-4" style="padding: 3px;">
-					<span> <i class="glyphicon glyphicon-earphone"></i>+6223-3334-4445</span>
-				</div>
-
-
-				<div class="col-md-4"  style="padding: 3px;">
-					<span><i class="glyphicon glyphicon-envelope"></i> albarokah.batik@gmail.com</span>
-				</div>
-
-
-				<div class="col-md-4"  style="padding: 3px;">
-					<span>Batik Al-Barokah Sumenep</span>
-				</div>
-			</center>
-		</div>
-	</div>
 
 	<nav class="navbar " style="padding: 5px; background-color: #4d0000;">
 		<div class="container">

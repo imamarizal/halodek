@@ -1,4 +1,4 @@
-
+<!-- 
 	<footer style="border-top: 4px solid #d9b712;  background-color: #4d0000">
 		<div class="container" style="padding-bottom: 50px;">
 			<div class="row">
@@ -28,4 +28,4 @@
 	</footer>
 
 </body>
-</html>
+</html> -->
